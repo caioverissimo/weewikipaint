@@ -1,5 +1,5 @@
 /* global desc, task, jake, fail, complete */
-
+(function() {
 "use strict";
 
 task("default", ["lint"]);
@@ -12,7 +12,11 @@ task("lint", [], function() {
 	files.include("**/*.js");
 	files.exclude("node_modules");
 
-	var options = {
+	lint.validateFileList(files.toArray(), nodeLintOptions(), {});
+});
+
+var nodeLintOptions = function() {
+	return {
 		bitwise: true,
 		curly: false,
 		eqeqeq: true,
@@ -29,6 +33,5 @@ task("lint", [], function() {
 		trailing: true,
 		node: true
 	};
-
-	lint.validateFileList(files.toArray(), options, {});
-});
+};
+}());
