@@ -2,6 +2,7 @@
 james shore weewikipaint
 
 To build on Windows:
+- Install node.js
 - Install Git
 - Clone repository
 
