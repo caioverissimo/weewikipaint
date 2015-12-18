@@ -18,7 +18,9 @@ Engineering Tasks:
 - client-side testing
 
 To Do on current task
-- Choose framework
-- Abstract it
+
+
+Future ideas
+
+- Abstract test framework? (Swap out a different framework to make sure abstraction works)
 - Swap out a different framework to make sure abstraction works
-- Add LICENSE.txt
