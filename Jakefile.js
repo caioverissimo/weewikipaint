@@ -38,8 +38,10 @@ task("lint", [], function() {
 desc("Test everything");
 task("test", [], function(){
 	var reporter = require("nodeunit").reporters["default"];
-	reporter.run(['src/server/_server_test.js']);
-});
+	reporter.run(['src/server/_server_test.js'], null, function(failures){
+		complete();
+	});
+}, {async: true});
 
 desc("Integrate");
 task("integrate", ["default"], function() {

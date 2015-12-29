@@ -4,6 +4,6 @@
 	console.log("Hello. I`m a server. No, really. What?");
 
 	exports.number = function() {
-		return 3;
+		return "not a number";
 	};
 }());
