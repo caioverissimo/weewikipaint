@@ -31,7 +31,8 @@ task("lint", [], function() {
 	files.include("**/*.js");
 	files.exclude("node_modules");
 
-	var passed = lint.validateFileList(files.toArray(), nodeLintOptions(), {});
+	var options = nodeLintOptions();
+	var passed = lint.validateFileList(files.toArray(), options, {});
 	if(!passed) fail("Lint failed");
 });
 
@@ -39,6 +40,7 @@ desc("Test everything");
 task("test", [], function(){
 	var reporter = require("nodeunit").reporters["default"];
 	reporter.run(['src/server/_server_test.js'], null, function(failures){
+		if (failures) fail("Tests failed");
 		complete();
 	});
 }, {async: true});
