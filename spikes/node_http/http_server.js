@@ -1,31 +1,37 @@
-// This is a simple spike of NOde's HTT module. The goal was to show
+// This is a simple spike of Node's HTTP module. The goal was to show
 // how to serve a vaery simple HTML page using Node.
 // It's not robust and it reflects a very baisc understanding of node; use it
 // as a starting point, not a production-quality example.
 
-var http = require("http");
+(function() {
 
-var server = http.createServer();
+	"use strict";
 
-server.on("request", function(request, response) {
+	var http = require("http");
 
-	console.log("Received request");
+	var server = http.createServer();
 
-	var body = "<html><head><title>Node HTTP Spike</title></head></html>" +
-		"<body><p>This is a spike of Node's HTTP server.</p></body>";
+	server.on("request", function(request, response) {
 
-	// The following two approaches are equivalent:
+		console.log("Received request");
 
-	// The verbose way...
-	// response.statusCode = 200;
-	// response.write(body);
-	// response.end();
+		var body = "<html><head><title>Node HTTP Spike</title></head></html>" +
+			"<body><p>This is a spike of Node's HTTP server.</p></body>";
 
-	// The concise way...
-	response.end(body);
+		// The following two approaches are equivalent:
 
-});
+		// The verbose way...
+		// response.statusCode = 200;
+		// response.write(body);
+		// response.end();
 
-server.listen(8080);
+		// The concise way...
+		response.end(body);
 
-console.log("Server started");
+	});
+
+	server.listen(8080);
+
+	console.log("Server started");
+	
+}());
