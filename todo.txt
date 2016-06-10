@@ -26,3 +26,6 @@ Future ideas
 
 Notes:
 - NodeUnit doesn't work properly on windows, it seems...
+
+
+***current: CH2/E8
